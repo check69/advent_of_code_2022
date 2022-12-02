@@ -45,14 +45,12 @@ impl Values {
 }
 
 fn char_to_value(s: &str) -> Values {
+    use Values::*;
     match s {
-        "A" => Values::Rock,
-        "B" => Values::Paper,
-        "C" => Values::Scissor,
-        "X" => Values::Rock,
-        "Y" => Values::Paper,
-        "Z" => Values::Scissor,
-        _ => Values::Error,
+        "A" | "X" => Rock,
+        "B" | "Y" => Paper,
+        "C" | "Z" => Scissor,
+        _ => Error,
     }
 }
 
