@@ -13,7 +13,7 @@ mod test {
     fn part2(elfs: Vec<Vec<usize>>) -> usize {
         let mut maximums: Vec<usize> = elfs.iter().map(|calories| calories.iter().sum()).collect();
         maximums.sort();
-        maximums[maximums.len()-3..].iter().sum()
+        maximums[maximums.len() - 3..].iter().sum()
     }
 
     #[test]
@@ -35,7 +35,8 @@ mod test {
 
     #[test]
     fn example2() -> std::io::Result<()> {
-        let mut elfs: Vec<Vec<usize>> = utils::read_multiple_data(Path::new("data/day1_example")).unwrap();
+        let mut elfs: Vec<Vec<usize>> =
+            utils::read_multiple_data(Path::new("data/day1_example")).unwrap();
         println!("{}", part2(elfs));
         Ok(())
     }
