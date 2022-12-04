@@ -87,9 +87,9 @@ dependencies = [
 
 [[package]]
 name = "sscanf"
-version = "0.1.4"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "513162b19ce2aa5347d36a1d9cbc8ba2b20c63e0e82080b52d2cade9fb3a8cb7"
+checksum = "887a5b09bbf30cc01d059ccb4b7a0b508a0cef3028df2f2ee0d745bc9e624c56"
 dependencies = [
  "const_format",
  "lazy_static",
@@ -99,15 +99,23 @@ dependencies = [
 
 [[package]]
 name = "sscanf_macro"
-version = "0.1.4"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d697834866afffd34330ee55f6dbb2cf1eedd44b33cc63b8fdfd87bc3268eeac"
+checksum = "b124cd4c68600cc3188a26987b1c3bed8cadcfd1be93124026096c668f2c0ee8"
 dependencies = [
  "proc-macro2",
  "quote",
  "regex-syntax",
+ "strsim",
  "syn",
+ "unicode-width",
 ]
+
+[[package]]
+name = "strsim"
+version = "0.10.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "73473c0e59e6d5812c5dfe2a064a6444949f089e20eec9a2e5506596494e4623"
 
 [[package]]
 name = "syn"
@@ -125,6 +133,12 @@ name = "unicode-ident"
 version = "1.0.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6ceab39d59e4c9499d4e5a8ee0e2735b891bb7308ac83dfb4e80cad195c9f6f3"
+
+[[package]]
+name = "unicode-width"
+version = "0.1.10"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c0edd1e5b14653f783770bce4a4dabb4a5108a5370a5f5d8cfe8710c361f6c8b"
 
 [[package]]
 name = "unicode-xid"
