@@ -30,24 +30,19 @@ fn is_subset(first: &ElfAssignment, second: &ElfAssignment) -> bool {
 
 impl Assignments {
     fn is_fully_overlapping(&self) -> bool {
-        if self.first_elf.start < self.second_elf.start || self.second_elf.end < self.first_elf.end
-        {
-            return is_subset(&self.first_elf, &self.second_elf);
-        }
-        is_subset(&self.second_elf, &self.first_elf)
+        is_subset(&self.first_elf, &self.second_elf) || is_subset(&self.second_elf, &self.first_elf)
     }
 
     fn is_overlapping(&self) -> bool {
-        if self.first_elf.start <= self.second_elf.start && self.first_elf.end >= self.second_elf.start{
+        if self.is_fully_overlapping() {
             return true;
         }
-        if self.second_elf.start <= self.first_elf.start && self.second_elf.end >= self.first_elf.start{
-            return true;
-        }
-        if self.first_elf.start <= self.second_elf.end && self.first_elf.end >= self.second_elf.end{
-            return true;
-        }
-        if self.second_elf.start <= self.first_elf.end && self.second_elf.end >= self.first_elf.end{
+
+        if self.first_elf.start >= self.second_elf.start
+            && self.first_elf.start <= self.second_elf.end
+            || self.first_elf.end >= self.second_elf.start
+                && self.first_elf.end <= self.second_elf.end
+        {
             return true;
         }
 
