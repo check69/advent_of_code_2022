@@ -6,7 +6,11 @@ mod test {
         collections::HashMap, env::current_exe, hash::Hash, path::Path, thread::current, vec,
     };
 
-    fn add_size_to_parent(parent_dir: String, current_dir: &str, folder_tree: &mut HashMap<String, usize>) {
+    fn add_size_to_parent(
+        parent_dir: String,
+        current_dir: &str,
+        folder_tree: &mut HashMap<String, usize>,
+    ) {
         let entry = folder_tree
             .entry(parent_dir.clone() + "/" + current_dir)
             .or_insert(0);
@@ -60,7 +64,11 @@ mod test {
         let folder_tree = get_folder_tree(data);
         let free_space_need = space_need - (total_size - folder_tree.get("//").unwrap());
 
-        *folder_tree.values().filter(|v| **v > free_space_need).min().unwrap()
+        *folder_tree
+            .values()
+            .filter(|v| **v > free_space_need)
+            .min()
+            .unwrap()
     }
 
     fn read_example() -> Vec<String> {
